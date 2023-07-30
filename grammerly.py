@@ -12,13 +12,28 @@ def main(page: ft.Page):
     page.window_max_width = 700
     page.window_height = 600
     page.window_width = 700
+    page.window_frameless = True
     
-    logo = ft.Image(src=f"logo.jpg", width=300)
+    logo = ft.Image(src="logo.jpg", width=300)
+    user_input = ft.TextField(hint_text="Enter your sentence...", border_radius=30)
+    output_text = ft.Text(value="Your response will be generated shortly...")
     
+    # container
+    output_container = ft.Container(
+        content=output_text,
+        margin=20,
+        padding=20,
+        bgcolor="#f2f2f2",
+        border_radius=30
+    )
     
     
     page.add(
-        logo
+        logo,
+        user_input,
+        ft.ElevatedButton(text="Submit"),
+        output_container,
+        ft.Image(src="children_happy.jpg", width=500)
     )
 
 
